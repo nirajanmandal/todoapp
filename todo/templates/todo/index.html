@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        <div class="container">
+                <h1>TodoApp</h1>
+                <form method="post">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <div class="form-group">
+                                 <label for="description">Description</label>
+                                {{ form.title }}
+                            </div>
+                        <option class="disabled" value="">Choose a category</option>
+                            {{ form.category }}
+                        </div>
+                    <div class="row">
+                        <a href="{% url 'todo:list' %}" class="btn btn-primary" name="taskAdd" type="submit">
+                            <i class="fa fa-plus icon"></i> Add Task</a>&nbsp;
+{#                        <button class="btn btn-primary" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>#}
+{#                            Add task</button>&nbsp;#}
+                        <a href="{% url 'todo:list' %}" class="btn btn-primary">View Task</a>
+                    </div>
+                </form>
+            </div>
+{% endblock %}
+
+
